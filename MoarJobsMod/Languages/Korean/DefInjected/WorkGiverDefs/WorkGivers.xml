@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<MaintainRefuel.label>연료 보충</MaintainRefuel.label>
+	<MaintainRefuel.verb>연료 보충</MaintainRefuel.verb>
+	<MaintainRefuel.gerund>연료 보충</MaintainRefuel.gerund>
+
+	<GrowerHarvest.label>작물 수확</GrowerHarvest.label>
+	<GrowerHarvest.verb>수확</GrowerHarvest.verb>
+	<GrowerHarvest.gerund>수확</GrowerHarvest.gerund>
+
+	<GrowerSow.label>작물 파종</GrowerSow.label>
+	<GrowerSow.verb>파종</GrowerSow.verb>
+	<GrowerSow.gerund>파종</GrowerSow.gerund>
+
+	<FeederFeedHumanlikes.label>환자 먹이기</FeederFeedHumanlikes.label>
+	<FeederFeedHumanlikes.verb>식사 전달</FeederFeedHumanlikes.verb>
+	<FeederFeedHumanlikes.gerund>식사 전달</FeederFeedHumanlikes.gerund>
+
+	<FeederFeedAnimals.label>동물 먹이기</FeederFeedAnimals.label>
+	<FeederFeedAnimals.verb>먹이 전달</FeederFeedAnimals.verb>
+	<FeederFeedAnimals.gerund>먹이 전달</FeederFeedAnimals.gerund>
+
+	<HaulDeliverResourcesToFrames.label>프레임에 물자 전달</HaulDeliverResourcesToFrames.label>
+	<HaulDeliverResourcesToFrames.verb>물자 전달</HaulDeliverResourcesToFrames.verb>
+	<HaulDeliverResourcesToFrames.gerund>물자 전달</HaulDeliverResourcesToFrames.gerund>
+
+	<HaulDeliverResourcesToBlueprints.label>청사진에 물자 전달</HaulDeliverResourcesToBlueprints.label>
+	<HaulDeliverResourcesToBlueprints.verb>물자 전달</HaulDeliverResourcesToBlueprints.verb>
+	<HaulDeliverResourcesToBlueprints.gerund>물자 전달</HaulDeliverResourcesToBlueprints.gerund>
+
+	<RefuelRefuel.label>건물에 연료 보충</RefuelRefuel.label>
+	<RefuelRefuel.verb>연료 보충</RefuelRefuel.verb>
+	<RefuelRefuel.gerund>연료 보충</RefuelRefuel.gerund>
+
+	<RearmerRearmTraps.label>함정 재장전</RearmerRearmTraps.label>
+	<RearmerRearmTraps.verb>재장전</RearmerRearmTraps.verb>
+	<RearmerRearmTraps.gerund>재장전</RearmerRearmTraps.gerund>
+
+</LanguageData>

@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WorkTypeDefs>
+
+	<WorkTypeDef>
+		<defName>Maintenance</defName>
+		<labelShort>Maintain</labelShort>
+		<pawnLabel>Maintainor</pawnLabel>
+		<gerundLabel>Maintaining</gerundLabel>
+		<description>Maintain the infrastructure of the colony and build/remove roofs.</description>
+		<verb>Maintain</verb>
+		<naturalPriority>910</naturalPriority>
+		<requireCapableColonist>true</requireCapableColonist>
+		<relevantSkills>
+			<li>Construction</li>
+		</relevantSkills>
+	</WorkTypeDef>
+
+	<WorkTypeDef>
+		<defName>Demolition</defName>
+		<labelShort>Demolish</labelShort>
+		<pawnLabel>Demolitionist</pawnLabel>
+		<gerundLabel>Demolishing</gerundLabel>
+		<description>Deconstruct things and relocate furniture.</description>
+		<verb>Demolish</verb>
+		<naturalPriority>890</naturalPriority>
+		<requireCapableColonist>true</requireCapableColonist>
+		<relevantSkills>
+			<li>Construction</li>
+		</relevantSkills>
+	</WorkTypeDef>
+
+	<WorkTypeDef>
+		<defName>Brewing</defName>
+		<labelShort>Brew</labelShort>
+		<pawnLabel>Brewer</pawnLabel>
+		<gerundLabel>Brewing</gerundLabel>
+		<description>Brew beer.</description>
+		<verb>Brew</verb>
+		<naturalPriority>990</naturalPriority>
+		<alwaysStartActive>false</alwaysStartActive>
+		<requireCapableColonist>true</requireCapableColonist>
+		<relevantSkills>
+			<li>Cooking</li>
+		</relevantSkills>
+	</WorkTypeDef>
+
+	<WorkTypeDef>
+		<defName>Harvesting</defName>
+		<labelShort>Harvest</labelShort>
+		<pawnLabel>Harvester</pawnLabel>
+		<gerundLabel>Harvesting</gerundLabel>
+		<description>Harvest grown crops.</description>
+		<verb>Harvest</verb>
+		<naturalPriority>720</naturalPriority>
+		<requireCapableColonist>true</requireCapableColonist>
+		<relevantSkills>
+			<li>Growing</li>
+		</relevantSkills>
+		<workTags>
+			<li>ManualSkilled</li>
+			<li>PlantWork</li>
+		</workTags>
+	</WorkTypeDef>
+
+	<WorkTypeDef>
+		<defName>Sowing</defName>
+		<labelShort>Sow</labelShort>
+		<pawnLabel>Sower</pawnLabel>
+		<gerundLabel>Sowing</gerundLabel>
+		<description>Sow crops.</description>
+		<verb>Sow</verb>
+		<naturalPriority>710</naturalPriority>
+		<requireCapableColonist>true</requireCapableColonist>
+		<relevantSkills>
+			<li>Growing</li>
+		</relevantSkills>
+		<workTags>
+			<li>ManualSkilled</li>
+			<li>PlantWork</li>
+		</workTags>
+	</WorkTypeDef>
+
+	<WorkTypeDef>
+		<defName>Loading</defName>
+		<labelShort>Load</labelShort>
+		<pawnLabel>Loader</pawnLabel>
+		<gerundLabel>Loading</gerundLabel>
+		<description>Aid caravans and other transports with loading and unloading.</description>
+		<verb>Load</verb>
+		<naturalPriority>320</naturalPriority>
+		<alwaysStartActive>true</alwaysStartActive>
+		<requireCapableColonist>true</requireCapableColonist>
+		<workTags>
+			<li>ManualDumb</li>
+			<li>Hauling</li>
+		</workTags>
+	</WorkTypeDef>
+
+	<WorkTypeDef>
+		<defName>Mortician</defName>
+		<labelShort>Mortician</labelShort>
+		<pawnLabel>Mortician</pawnLabel>
+		<gerundLabel>Mortifying</gerundLabel>
+		<description>Carry out burials and cremations for the dead.</description>
+		<verb>Mortify</verb>
+		<naturalPriority>310</naturalPriority>
+		<alwaysStartActive>true</alwaysStartActive>
+		<requireCapableColonist>true</requireCapableColonist>
+		<workTags>
+		</workTags>
+	</WorkTypeDef>
+
+	<WorkTypeDef>
+		<defName>Feeding</defName>
+		<labelShort>Feed</labelShort>
+		<pawnLabel>Feeder</pawnLabel>
+		<gerundLabel>Feeding</gerundLabel>
+		<description>Take meals to prisoners and to the sick resting in bed.</description>
+		<verb>Feed</verb>
+		<naturalPriority>1280</naturalPriority>
+		<alwaysStartActive>false</alwaysStartActive>
+		<requireCapableColonist>true</requireCapableColonist>
+		<workTags>
+			<li>Caring</li>
+		</workTags>
+	</WorkTypeDef>
+
+	<WorkTypeDef>
+		<defName>Nursing</defName>
+		<labelShort>Nurse</labelShort>
+		<pawnLabel>Nurse</pawnLabel>
+		<gerundLabel>Nursing</gerundLabel>
+		<description>Assist doctors in taking care of patients.</description>
+		<verb>Nurse</verb>
+		<naturalPriority>1290</naturalPriority>
+		<relevantSkills>
+			<li>Medicine</li>
+		</relevantSkills>
+		<workTags>
+			<li>Caring</li>
+		</workTags>
+	</WorkTypeDef>
+
+	<WorkTypeDef>
+		<defName>Refueling</defName>
+		<labelShort>Refuel</labelShort>
+		<pawnLabel>Refueler</pawnLabel>
+		<gerundLabel>Refueling</gerundLabel>
+		<description>Refuel things like torches and generators.</description>
+		<verb>Refuel</verb>
+		<naturalPriority>1140</naturalPriority>
+		<alwaysStartActive>false</alwaysStartActive>
+		<requireCapableColonist>true</requireCapableColonist>
+	</WorkTypeDef>
+
+	<WorkTypeDef>
+		<defName>TrapRearming</defName>
+		<labelShort>Trap Rearm</labelShort>
+		<pawnLabel>Trap Rearmer</pawnLabel>
+		<gerundLabel>Rearming</gerundLabel>
+		<description>Rearm traps.</description>
+		<verb>Rearm</verb>
+		<naturalPriority>1130</naturalPriority>
+		<requireCapableColonist>true</requireCapableColonist>
+	</WorkTypeDef>
+	
+</WorkTypeDefs>

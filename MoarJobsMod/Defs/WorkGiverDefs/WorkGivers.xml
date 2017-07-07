@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WorkGivers>
+
+	<WorkGiverDef>
+		<defName>MaintainRefuel</defName>
+		<label>refuel fuelable buildings</label>
+		<giverClass>WorkGiver_Refuel</giverClass>
+		<workType>Maintenance</workType>
+		<verb>refuel</verb>
+		<gerund>refueling</gerund>
+		<priorityInType>50</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<prioritizeSustains>true</prioritizeSustains>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>GrowerHarvest</defName>
+		<label>harvest crops</label>
+		<giverClass>WorkGiver_GrowerHarvest</giverClass>
+		<workType>Harvesting</workType>
+		<priorityInType>100</priorityInType>
+		<verb>harvest</verb>
+		<gerund>harvesting</gerund>
+		<scanThings>false</scanThings>
+		<scanCells>true</scanCells>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>FeederFeedHumanlikes</defName>
+		<label>feed patients</label>
+		<giverClass>WorkGiver_FeedPatient</giverClass>
+		<workType>Feeding</workType>
+		<verb>feed</verb>
+		<gerund>feeding</gerund>
+		<priorityInType>60</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<prioritizeSustains>true</prioritizeSustains>
+		<feedHumanlikesOnly>true</feedHumanlikesOnly>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>FeederFeedAnimals</defName>
+		<label>feed animals</label>
+		<giverClass>WorkGiver_FeedPatient</giverClass>
+		<workType>Feeding</workType>
+		<verb>feed</verb>
+		<gerund>feeding</gerund>
+		<priorityInType>30</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<prioritizeSustains>true</prioritizeSustains>
+		<feedAnimalsOnly>true</feedAnimalsOnly>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>HaulDeliverResourcesToFrames</defName>
+		<label>deliver resources to frames</label>
+		<giverClass>WorkGiver_ConstructDeliverResourcesToFrames</giverClass>
+		<workType>Hauling</workType>
+		<priorityInType>95</priorityInType>
+		<verb>work on</verb>
+		<gerund>working on</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<canBeDoneByNonColonists>true</canBeDoneByNonColonists>
+		<prioritizeSustains>true</prioritizeSustains>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>HaulDeliverResourcesToBlueprints</defName>
+		<label>deliver resources to blueprints</label>
+		<giverClass>WorkGiver_ConstructDeliverResourcesToBlueprints</giverClass>
+		<workType>Hauling</workType>
+		<priorityInType>93</priorityInType>
+		<verb>work on</verb>
+		<gerund>working on</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<canBeDoneByNonColonists>true</canBeDoneByNonColonists>
+		<prioritizeSustains>true</prioritizeSustains>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>NurseRescue</defName>
+		<label>rescue downed allies to bed</label>
+		<giverClass>WorkGiver_RescueDowned</giverClass>
+		<workType>Nursing</workType>
+		<verb>rescue</verb>
+		<gerund>rescuing</gerund>
+		<priorityInType>90</priorityInType>
+		<directOrderable>false</directOrderable>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+	
+	<WorkGiverDef>
+		<defName>NurseFeedHumanlikes</defName>
+		<label>feed patients</label>
+		<giverClass>WorkGiver_FeedPatient</giverClass>
+		<workType>Nursing</workType>
+		<verb>feed</verb>
+		<gerund>feeding</gerund>
+		<priorityInType>60</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<prioritizeSustains>true</prioritizeSustains>
+		<feedHumanlikesOnly>true</feedHumanlikesOnly>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>NurseFeedAnimals</defName>
+		<label>feed animals</label>
+		<giverClass>WorkGiver_FeedPatient</giverClass>
+		<workType>Nursing</workType>
+		<verb>feed</verb>
+		<gerund>feeding</gerund>
+		<priorityInType>30</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<prioritizeSustains>true</prioritizeSustains>
+		<feedAnimalsOnly>true</feedAnimalsOnly>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>NurseToBedToOperate</defName>
+		<label>take patients to bed for operations</label>
+		<giverClass>WorkGiver_TakeToBedToOperate</giverClass>
+		<workType>Nursing</workType>
+		<priorityInType>5</priorityInType>
+		<verb>take to operate</verb>
+		<gerund>taking to operate</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>NurseVisitSickPawn</defName>
+		<label>visit sick people</label>
+		<giverClass>WorkGiver_VisitSickPawn</giverClass>
+		<workType>Nursing</workType>
+		<priorityInType>3</priorityInType>
+		<verb>visit</verb>
+		<gerund>visiting</gerund>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>RefuelRefuel</defName>
+		<label>refuel fuelable buildings</label>
+		<giverClass>WorkGiver_Refuel</giverClass>
+		<workType>Refueling</workType>
+		<verb>refuel</verb>
+		<gerund>refueling</gerund>
+		<priorityInType>60</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<prioritizeSustains>true</prioritizeSustains>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>RearmerRearmTraps</defName>
+		<label>rearm traps</label>
+		<giverClass>WorkGiver_RearmTraps</giverClass>
+		<workType>TrapRearming</workType>
+		<verb>rearm</verb>
+		<gerund>rearming</gerund>
+		<priorityInType>50</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+
+</WorkGivers>

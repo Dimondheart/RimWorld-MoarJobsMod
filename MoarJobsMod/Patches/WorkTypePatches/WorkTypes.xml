@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationReplace">
+		<xpath>*/WorkTypeDef[defName = "Construction"]/description</xpath>
+		<value>
+			<description>Build things that you've designated.</description>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationAdd">
+		<xpath>*/WorkTypeDef[defName = "Growing"]</xpath>
+		<value>
+			<visible>false</visible>
+		</value>
+	</Operation>
+	<Operation Class="PatchOperationReplace">
+		<xpath>*/WorkTypeDef[defName = "Growing"]/description</xpath>
+		<value>
+			<description>If you're seeing this then there's a bug with the Moar Jobs mod.</description>
+		</value>
+	</Operation>
+</Patch>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<Maintenance.labelShort>유지</Maintenance.labelShort>
+	<Maintenance.pawnLabel>유지자</Maintenance.pawnLabel>
+	<Maintenance.gerundLabel>유지</Maintenance.gerundLabel>
+	<Maintenance.description>Maintain the infrastructure of the colony and build/remove roofs.</Maintenance.description>
+	<Maintenance.verb>유지</Maintenance.verb>
+
+	<Demolition.labelShort>해체</Demolition.labelShort>
+	<Demolition.pawnLabel>해체자</Demolition.pawnLabel>
+	<Demolition.gerundLabel>해체</Demolition.gerundLabel>
+	<Demolition.description>Deconstruct things and relocate furniture.</Demolition.description>
+	<Demolition.verb>해체</Demolition.verb>
+
+	<Harvesting.labelShort>수확</Harvesting.labelShort>
+	<Harvesting.pawnLabel>수확자</Harvesting.pawnLabel>
+	<Harvesting.gerundLabel>수확</Harvesting.gerundLabel>
+	<Harvesting.description>Harvest grown crops.</Harvesting.description>
+	<Harvesting.verb>수확</Harvesting.verb>
+
+	<Sowing.labelShort>파종</Sowing.labelShort>
+	<Sowing.pawnLabel>파종자</Sowing.pawnLabel>
+	<Sowing.gerundLabel>파종</Sowing.gerundLabel>
+	<Sowing.description>Sow crops.</Sowing.description>
+	<Sowing.verb>파종</Sowing.verb>
+
+	<Growing.labelShort>재배</Growing.labelShort>
+	<Growing.pawnLabel>재배자</Growing.pawnLabel>
+	<Growing.gerundLabel>재배</Growing.gerundLabel>
+	<Growing.description>If you're seeing this then there's a bug with the Divided Growing Tasks mod.</Growing.description>
+	<Growing.verb>재배</Growing.verb>
+
+	<Loading.labelShort>적재</Loading.labelShort>
+	<Loading.pawnLabel>적재자</Loading.pawnLabel>
+	<Loading.gerundLabel>적재</Loading.gerundLabel>
+	<Loading.description>Aid caravans and other transports with loading and unloading.</Loading.description>
+	<Loading.verb>적재</Loading.verb>
+
+	<Mortician.labelShort>화장</Mortician.labelShort>
+	<Mortician.pawnLabel>화장자</Mortician.pawnLabel>
+	<Mortician.gerundLabel>화장</Mortician.gerundLabel>
+	<Mortician.description>Carry out burials and cremations for the dead.</Mortician.description>
+	<Mortician.verb>화장</Mortician.verb>
+
+	<Feeding.labelShort>식사 공급</Feeding.labelShort>
+	<Feeding.pawnLabel>식사 공급자</Feeding.pawnLabel>
+	<Feeding.gerundLabel>식사 공급</Feeding.gerundLabel>
+	<Feeding.description>Take meals to prisoners and to the sick resting in bed.</Feeding.description>
+	<Feeding.verb>식사 공급</Feeding.verb>
+
+	<Refueling.labelShort>연료 보충</Refueling.labelShort>
+	<Refueling.pawnLabel>연료 보충</Refueling.pawnLabel>
+	<Refueling.gerundLabel>연료 보충</Refueling.gerundLabel>
+	<Refueling.description>Refuel things like torches and generators.</Refueling.description>
+	<Refueling.verb>연료 보충</Refueling.verb>
+
+	<TrapRearming.labelShort>함정 재장전</TrapRearming.labelShort>
+	<TrapRearming.pawnLabel>재장전자</TrapRearming.pawnLabel>
+	<TrapRearming.gerundLabel>재장전</TrapRearming.gerundLabel>
+	<TrapRearming.description>함정을 재장전 합니다.</TrapRearming.description>
+	<TrapRearming.verb>재장전</TrapRearming.verb>
+
+</LanguageData>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>[A17] Moar Jobs Mod v0.1.0</name>
+  <author>Bryan Bettis</author>
+  <description>A combined version of my divided/additional jobs mods. Will eventually feature toggling different jobs within a save, some basic configuration options for each job, possibly adding to existing saves, etc.</description>
+  <targetVersion>0.17.1557</targetVersion>
+</ModMetaData>
