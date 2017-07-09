@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+    <Maintenance.labelShort>Maintain</Maintenance.labelShort>
+    <Maintenance.pawnLabel>Maintainor</Maintenance.pawnLabel>
+    <Maintenance.gerundLabel>Maintaining</Maintenance.gerundLabel>
+    <Maintenance.description>Maintain the infrastructure of the colony and build/remove roofs.</Maintenance.description>
+    <Maintenance.verb>Maintain</Maintenance.verb>
+
+    <Demolition.labelShort>Demolish</Demolition.labelShort>
+    <Demolition.pawnLabel>Demolitionist</Demolition.pawnLabel>
+    <Demolition.gerundLabel>Demolishing</Demolition.gerundLabel>
+    <Demolition.description>Deconstruct things and relocate furniture.</Demolition.description>
+    <Demolition.verb>Demolish</Demolition.verb>
+</LanguageData>

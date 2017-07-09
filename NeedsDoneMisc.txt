@@ -1,0 +1,5 @@
+-Get and store all jobdefs for the mod by name
+-Call pawn.workSettings.Disable(workTypeDef)
+-set workTypeDef.visible, relevantSkills?, workGiversByPriority
+-set workGiverDef.priorityInType, workType, workTags?
+-save config to world data storage

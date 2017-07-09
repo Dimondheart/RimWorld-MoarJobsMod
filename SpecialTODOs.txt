@@ -1,0 +1,2 @@
+-Figure out how to properly apply translations to mod settings menu
+-Finish copying in english translations

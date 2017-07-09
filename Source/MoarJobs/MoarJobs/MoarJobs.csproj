@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+	<PropertyGroup>
+		<TargetFramework>net3.5</TargetFramework>
+		<PostBuildEvent>move $(SolutionDir)MoarJobs\bin\Debug\net3.5\MoarJobs.dll $(SolutionDir)..\..\MoarJobsMod\Assemblies\MoarJobs.dll</PostBuildEvent>
+		<Version>1.0.0</Version>
+		<Authors>Bryan Bettis</Authors>
+		<Company />
+		<Product>Moar Jobs Mod</Product>
+		<Description>The assembly for the RimWorld mod Moar Jobs.</Description>
+		<PackageProjectUrl></PackageProjectUrl>
+		<RepositoryUrl>https://github.com/Dimondheart/RimWorld-MoarJobsMod/</RepositoryUrl>
+		<RepositoryType>Git</RepositoryType>
+	</PropertyGroup>
+	<ItemGroup>
+		<Reference Include="0Harmony">
+			<HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\294100\818773962\Assemblies\0Harmony.dll</HintPath>
+		</Reference>
+		<Reference Include="Assembly-CSharp">
+			<HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin_Data\Managed\Assembly-CSharp.dll</HintPath>
+			<Aliases></Aliases>
+			<Private></Private>
+		</Reference>
+		<Reference Include="HugsLib">
+			<HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\workshop\content\294100\818773962\Assemblies\HugsLib.dll</HintPath>
+		</Reference>
+		<Reference Include="UnityEngine">
+			<HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin_Data\Managed\UnityEngine.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+</Project>

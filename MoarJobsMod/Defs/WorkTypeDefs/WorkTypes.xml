@@ -1,5 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <WorkTypeDefs>
+	<WorkTypeDef>
+		<defName>HiddenJob</defName>
+		<labelShort>YoBeSeeinNinjas</labelShort>
+		<pawnLabel>ImANinjaBro</pawnLabel>
+		<gerundLabel>Ninjaing</gerundLabel>
+		<description>Bro/Bra, you shouldn't be able to see this, report this bug hidden in the shadows to the head ninja- I mean developer of the Moar Jobs mod.</description>
+		<verb>Ninja</verb>
+		<naturalPriority>1</naturalPriority>
+		<requireCapableColonist>true</requireCapableColonist>
+		<visible>false</visible>
+		<alwaysStartActive>false</alwaysStartActive>
+	</WorkTypeDef>
 
 	<WorkTypeDef>
 		<defName>Maintenance</defName>
@@ -163,5 +175,4 @@
 		<naturalPriority>1130</naturalPriority>
 		<requireCapableColonist>true</requireCapableColonist>
 	</WorkTypeDef>
-	
 </WorkTypeDefs>

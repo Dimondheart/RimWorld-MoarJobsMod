@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<HugsLib.UpdateFeatureDef Abstract="true" Name="UpdateFeatureBase">
+		<modNameReadable>Moar Jobs</modNameReadable>
+		<modIdentifier>MoarJobs</modIdentifier>
+		<linkUrl>http://steamcommunity.com/sharedfiles/filedetails/?id=969753757</linkUrl>
+	</HugsLib.UpdateFeatureDef>
+	
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+		<defName>MoarJobs_0_2_0</defName>
+		<assemblyVersion>0.2.0</assemblyVersion>
+		<content>Per-save mod config (Jobs/tweaks can be individually enabled/disabled within a save game.)</content>
+	</HugsLib.UpdateFeatureDef>
+</Defs>
