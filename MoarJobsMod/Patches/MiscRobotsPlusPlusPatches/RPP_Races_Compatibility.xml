@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+				<xpath>*/ThingDef[defName = "AIRobot_Hauler_II"]</xpath>
+				<success>Always</success>
+			</li>
+			<!-- AIRobot_Hauler_II -->
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName = "AIRobot_Hauler_II"]/robotWorkTypes</xpath>
+				<value>
+					<li>
+						<workTypeDef>Loading</workTypeDef>
+						<priority>1</priority>
+					</li>
+					<li>
+						<workTypeDef>Mortician</workTypeDef>
+						<priority>1</priority>
+					</li>
+				</value>
+			</li>
+			<!-- AIRobot_Hauler_III -->
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName = "AIRobot_Hauler_III"]/robotWorkTypes</xpath>
+				<value>
+					<li>
+						<workTypeDef>Loading</workTypeDef>
+						<priority>1</priority>
+					</li>
+					<li>
+						<workTypeDef>Mortician</workTypeDef>
+						<priority>1</priority>
+					</li>
+				</value>
+			</li>
+			<!-- AIRobot_Hauler_IV -->
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName = "AIRobot_Hauler_IV"]/robotWorkTypes</xpath>
+				<value>
+					<li>
+						<workTypeDef>Loading</workTypeDef>
+						<priority>1</priority>
+					</li>
+					<li>
+						<workTypeDef>Mortician</workTypeDef>
+						<priority>1</priority>
+					</li>
+				</value>
+			</li>
+			<!-- RPP_Bot_Builder_I -->
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName = "RPP_Bot_Builder_I"]/robotWorkTypes</xpath>
+				<value>
+					<li>
+						<workTypeDef>Maintenance</workTypeDef>
+						<priority>1</priority>
+					</li>
+					<li>
+						<workTypeDef>Demolition</workTypeDef>
+						<priority>1</priority>
+					</li>
+				</value>
+			</li>
+			<!-- RPP_Bot_Builder_II -->
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName = "RPP_Bot_Builder_II"]/robotWorkTypes</xpath>
+				<value>
+					<li>
+						<workTypeDef>Maintenance</workTypeDef>
+						<priority>1</priority>
+					</li>
+					<li>
+						<workTypeDef>Demolition</workTypeDef>
+						<priority>1</priority>
+					</li>
+				</value>
+			</li>
+			<!-- RPP_Bot_Builder_III -->
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName = "RPP_Bot_Builder_III"]/robotWorkTypes</xpath>
+				<value>
+					<li>
+						<workTypeDef>Maintenance</workTypeDef>
+						<priority>1</priority>
+					</li>
+					<li>
+						<workTypeDef>Demolition</workTypeDef>
+						<priority>1</priority>
+					</li>
+				</value>
+			</li>
+			<!-- RPP_Bot_Builder_IV -->
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName = "RPP_Bot_Builder_IV"]/robotWorkTypes</xpath>
+				<value>
+					<li>
+						<workTypeDef>Maintenance</workTypeDef>
+						<priority>1</priority>
+					</li>
+					<li>
+						<workTypeDef>Demolition</workTypeDef>
+						<priority>1</priority>
+					</li>
+				</value>
+			</li>
+			<!-- RPP_Bot_Kitchen_I -->
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName = "RPP_Bot_Kitchen_I"]/robotWorkTypes</xpath>
+				<value>
+					<li>
+						<workTypeDef>Brewing</workTypeDef>
+						<priority>1</priority>
+					</li>
+					<li>
+						<workTypeDef>Harvesting</workTypeDef>
+						<priority>2</priority>
+					</li>
+					<li>
+						<workTypeDef>Sowing</workTypeDef>
+						<priority>2</priority>
+					</li>
+				</value>
+			</li>
+			<!-- RPP_Bot_Kitchen_II -->
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName = "RPP_Bot_Kitchen_II"]/robotWorkTypes</xpath>
+				<value>
+					<li>
+						<workTypeDef>Brewing</workTypeDef>
+						<priority>1</priority>
+					</li>
+					<li>
+						<workTypeDef>Harvesting</workTypeDef>
+						<priority>2</priority>
+					</li>
+					<li>
+						<workTypeDef>Sowing</workTypeDef>
+						<priority>2</priority>
+					</li>
+				</value>
+			</li>
+			<!-- RPP_Bot_Kitchen_III -->
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName = "RPP_Bot_Kitchen_III"]/robotWorkTypes</xpath>
+				<value>
+					<li>
+						<workTypeDef>Brewing</workTypeDef>
+						<priority>1</priority>
+					</li>
+					<li>
+						<workTypeDef>Harvesting</workTypeDef>
+						<priority>2</priority>
+					</li>
+					<li>
+						<workTypeDef>Sowing</workTypeDef>
+						<priority>2</priority>
+					</li>
+				</value>
+			</li>
+			<!-- RPP_Bot_Kitchen_IV -->
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName = "RPP_Bot_Kitchen_IV"]/robotWorkTypes</xpath>
+				<value>
+					<li>
+						<workTypeDef>Brewing</workTypeDef>
+						<priority>1</priority>
+					</li>
+					<li>
+						<workTypeDef>Harvesting</workTypeDef>
+						<priority>2</priority>
+					</li>
+					<li>
+						<workTypeDef>Sowing</workTypeDef>
+						<priority>2</priority>
+					</li>
+				</value>
+			</li>
+			<!-- RPP_Bot_Omni_V -->
+			<li Class="PatchOperationAdd">
+				<xpath>*/ThingDef[defName = "RPP_Bot_Omni_V"]/robotWorkTypes</xpath>
+				<value>
+					<li>
+						<workTypeDef>Loading</workTypeDef>
+						<priority>2</priority>
+					</li>
+					<li>
+						<workTypeDef>Mortician</workTypeDef>
+						<priority>2</priority>
+					</li>
+					<li>
+						<workTypeDef>Maintenance</workTypeDef>
+						<priority>3</priority>
+					</li>
+					<li>
+						<workTypeDef>Demolition</workTypeDef>
+						<priority>3</priority>
+					</li>
+					<li>
+						<workTypeDef>Harvesting</workTypeDef>
+						<priority>3</priority>
+					</li>
+					<li>
+						<workTypeDef>Sowing</workTypeDef>
+						<priority>3</priority>
+					</li>
+					<li>
+						<workTypeDef>Brewing</workTypeDef>
+						<priority>3</priority>
+					</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+</Patch>
