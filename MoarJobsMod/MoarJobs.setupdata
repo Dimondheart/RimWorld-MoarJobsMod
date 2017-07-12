@@ -1,0 +1,88 @@
+Editing this file could cause the mod to not work properly. Edit at your own risk.
+
+~Macro
+DEFAULT_OSC_SETTING_BOOLEAN SetWorkTypeEnabled(this.Name,this.Value)
+
+~Reference`OperationImmediate
+SetBooleanSettings(Group,Value)
+
+~Reference`OperationSettingsChanged
+SetWorkTypeEnabled(Type,Value)
+SetWorkGiverEnabled(Giver,Value)
+SetWorkGiversEnabled(Group,Value)
+
+~Reference`SynchronizeEnabledStates
+SynchronizeEnabledByConditional(Type,Condition)
+SynchronizeEnabled(Type1,Type2,Mirrored)
+
+~SynchronizeEnabled
+SynchronizeEnabledByConditional(WorkTypeDefs.Growing,!WorkTypeDefs.Harvesting|!WorkTypeDefs.Sowing)
+SynchronizeEnabled(WorkGiverDefs.HaulDeliverResourcesToFrames,WorkGiverDef.HaulDeliverResourcesToBlueprints,true)
+
+// Work types added by this mod
+~WorkTypeDefs
+$
+Nursing
+Feeding
+Refueling
+TrapRearming
+Brewing
+Maintenance
+Demolition
+Harvesting
+Sowing
+Loading
+Mortician
+HiddenJob`DisabledWorkGiverStorage
+
+// Vanilla work giver defs changed by this mod
+~WorkGiverDefs
+$Maintenance
+FixBrokenDownBuilding
+Repair
+BuildRoofs
+RemoveRoofs
+RearmTraps
+FluffyBreakdowns_Maintenance$CompatibleModDef
+$Demolition
+Deconstruct
+Uninstall
+ConstructRemoveFloors
+ConstructSmoothFloors
+$Brewing
+DoBillsBrew
+TakeBeerOutOfFermentingBarrel
+FillFermentingBarrel
+$Sowing
+Sow
+$Harvesting
+Harvest
+$Loading
+UnloadCarriers
+LoadTransporters
+HelpGatheringItemsForCaravan
+$Mortician
+BuryCorpses
+DoBillsCremate
+$Feeding
+FeedPrisoner
+
+// Mod settings configuration
+~ModSettings`Default.Type=CheckBox`Default.Boolean=true
+$
+Enable All Work Types`Type=Button`OperationImmediate=SetBooleanSettings(ModSettings.WorkTypeDefs,true)
+Disable All Work Types`Type=Button`OperationImmediate=SetBooleanSettings(ModSettings.WorkTypeDefs,false)
+$WorkTypeDefs
+Nursing`OperationSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN
+Feeding`OperationSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(Groups.WorkGiverDefs.Feeding,this.Value)
+Refueling`OperationSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN
+TrapRearming`DisplayName=Trap Rearming`OperationSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN
+Brewing`OperationSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(Groups.WorkGiverDefs.Brewing,this.Value)
+Maintenance`OperationSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(Groups.WorkGiverDefs.Maintenance,this.Value)
+Demolition`OperationSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(Groups.WorkGiverDefs.Demolition,this.Value)
+Harvesting`OperationSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(Groups.WorkGiverDefs.Harvesting,this.Value)
+Sowing`OperationSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(Groups.WorkGiverDefs.Sowing,this.Value)
+Loading`OperationSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(Groups.WorkGiverDefs.Loading,this.Value)
+Mortician`OperationSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(Groups.WorkGiverDefs.Mortician,this.Value)
+$
+Haulers Haul To Blueprints`OperationSettingsChanged=SetWorkGiverEnabled(HaulDeliverResourcesToBlueprints,this.Value)

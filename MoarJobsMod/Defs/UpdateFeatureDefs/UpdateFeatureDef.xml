@@ -7,8 +7,14 @@
 	</HugsLib.UpdateFeatureDef>
 	
 	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
+		<defName>MoarJobs_0_1_1</defName>
+		<assemblyVersion>0.1.1</assemblyVersion>
+		<content>Added compatibility with Misc Robots and Misc Robots++</content>
+	</HugsLib.UpdateFeatureDef>
+	
+	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
 		<defName>MoarJobs_0_2_0</defName>
 		<assemblyVersion>0.2.0</assemblyVersion>
-		<content>Per-save mod config (Jobs/tweaks can be individually enabled/disabled within a save game.)</content>
+		<content>Per-save mod config (Jobs/tweaks can be individually enabled/disabled/configured within a save game.)</content>
 	</HugsLib.UpdateFeatureDef>
 </Defs>

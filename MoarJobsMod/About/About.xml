@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>[A17] Moar Jobs Mod v0.1.1</name>
+  <name>[A17] Moar Jobs Mod</name>
   <author>Bryan Bettis</author>
-  <description>A combined version of my divided/additional jobs mods. Will eventually feature toggling different jobs within a save, some basic configuration options for each job, possibly adding to existing saves, etc.</description>
+  <description>A combined version of my divided/additional jobs and job/task tweak mods. Each job/tweak can be enabled and in the mods settings (some jobs/tweaks have additional configuration options) and is configured separately for each save. If possible/practical will eventually be able to add it to existing saves, including saves that used some of my individual job/task tweak mods.</description>
   <targetVersion>0.17.1557</targetVersion>
 </ModMetaData>

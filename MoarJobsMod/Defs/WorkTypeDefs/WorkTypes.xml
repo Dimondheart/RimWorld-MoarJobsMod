@@ -118,8 +118,6 @@
 		<naturalPriority>310</naturalPriority>
 		<alwaysStartActive>true</alwaysStartActive>
 		<requireCapableColonist>true</requireCapableColonist>
-		<workTags>
-		</workTags>
 	</WorkTypeDef>
 
 	<WorkTypeDef>
