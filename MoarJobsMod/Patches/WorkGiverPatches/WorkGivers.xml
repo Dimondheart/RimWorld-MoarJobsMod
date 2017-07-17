@@ -102,6 +102,51 @@
 			<workType>Brewing</workType>
 		</value>
 	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+				<xpath>*/WorkGiverDef[defName = "CPD_WorkGiver_TakeAlcoholOutOfAlcoholBarrel"]/defName</xpath>
+				<success>Always</success>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/WorkGiverDef[defName = "BrewerCPD_WorkGiver_TakeAlcoholOutOfAlcoholBarrel"]</xpath>
+				<value>
+					<WorkGiverDef>
+						<defName>BrewerCPD_WorkGiver_TakeAlcoholOutOfAlcoholBarrel</defName>
+						<label>take alcohol out of alcohol barrels</label>
+						<giverClass>CuprosDrinks.WorkGiver_TakeAlcoholOutOfAlcoholBarrel</giverClass>
+						<workType>Brewing</workType>
+						<verb>take alcohol</verb>
+						<gerund>taking alcohol from</gerund>
+						<priorityInType>20</priorityInType>
+						<requiredCapacities>
+							<li>Manipulation</li>
+						</requiredCapacities>
+					</WorkGiverDef>
+				</value>
+				<success>Always</success>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>*/WorkGiverDef[defName = "BrewerCPD_WorkGiver_FillAlcoholBarrel"]</xpath>
+				<value>
+					<WorkGiverDef>
+						<defName>BrewerCPD_WorkGiver_FillAlcoholBarrel</defName>
+						<label>fill alcohol barrels</label>
+						<giverClass>CuprosDrinks.WorkGiver_FillAlcoholBarrel</giverClass>
+						<workType>Brewing</workType>
+						<verb>fill</verb>
+						<gerund>filling</gerund>
+						<priorityInType>19</priorityInType>
+						<requiredCapacities>
+							<li>Manipulation</li>
+						</requiredCapacities>
+					</WorkGiverDef>
+				</value>
+				<success>Always</success>
+			</li>
+		</operations>
+	</Operation>
 
 	<!-- Divided Growing -->
 	<Operation Class="PatchOperationSequence">
