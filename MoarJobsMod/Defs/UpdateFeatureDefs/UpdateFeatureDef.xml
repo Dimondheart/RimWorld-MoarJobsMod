@@ -15,6 +15,6 @@
 	<HugsLib.UpdateFeatureDef ParentName="UpdateFeatureBase">
 		<defName>MoarJobs_0_2_0</defName>
 		<assemblyVersion>0.2.0</assemblyVersion>
-		<content>Per-save mod config (Jobs/tweaks can be individually enabled/disabled/configured within a save game.)</content>
+		<content>-Enabling/Disabling jobs (per-save config, can be changed anytime)\n-Fill/empty fermenting barrels is in both brewing and hauling</content>
 	</HugsLib.UpdateFeatureDef>
 </Defs>

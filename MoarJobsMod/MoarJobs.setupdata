@@ -1,26 +1,25 @@
 Editing this file could cause the mod to not work properly. Edit at your own risk.
 
-~Macro
-DEFAULT_OSC_SETTING_BOOLEAN SetWorkTypeEnabled(this.Name,this.Value)
 
-~Reference`OperationImmediate
-SetBooleanSettings(Group,Value)
+~Macros
+#DEFAULT_OSC_SETTING_BOOLEAN SetWorkTypeEnabled(<Name, ^Value)
 
-~Reference`OperationSettingsChanged
-SetWorkTypeEnabled(Type,Value)
-SetWorkGiverEnabled(Giver,Value)
-SetWorkGiversEnabled(Group,Value)
 
-~Reference`SynchronizeEnabledStates
-SynchronizeEnabledByConditional(Type,Condition)
-SynchronizeEnabled(Type1,Type2,Mirrored)
+~FunctionDeclarations
+Type=FunctionDeclaration
 
-~SynchronizeEnabled
-SynchronizeEnabledByConditional(WorkTypeDefs.Growing,!WorkTypeDefs.Harvesting|!WorkTypeDefs.Sowing)
-SynchronizeEnabled(WorkGiverDefs.HaulDeliverResourcesToFrames,WorkGiverDef.HaulDeliverResourcesToBlueprints,true)
+$WorkTypeUtils
+SetWorkTypeEnabled`type=String`enabled=Bool
+SetWorkTypeEnabledByConditional`defName=String`condition=Conditional
 
-// Work types added by this mod
+$WorkGiverUtils
+SetWorkGiverEnabled`giver=String`enabled=Bool
+SetWorkGiversEnabled`group=Group`enabled=Bool
+
+
+\ Work types added by this mod
 ~WorkTypeDefs
+Type=String
 $
 Nursing
 Feeding
@@ -33,17 +32,19 @@ Harvesting
 Sowing
 Loading
 Mortician
-HiddenJob`DisabledWorkGiverStorage
+HiddenJob$DisabledGiverContainer
 
-// Vanilla work giver defs changed by this mod
+
+\ Non Moar Jobs work giver defs changed by this mod
 ~WorkGiverDefs
+Type=String
 $Maintenance
 FixBrokenDownBuilding
 Repair
 BuildRoofs
 RemoveRoofs
 RearmTraps
-FluffyBreakdowns_Maintenance$CompatibleModDef
+FluffyBreakdowns_Maintenance$FromCompatibleMod
 $Demolition
 Deconstruct
 Uninstall
@@ -51,8 +52,8 @@ ConstructRemoveFloors
 ConstructSmoothFloors
 $Brewing
 DoBillsBrew
-TakeBeerOutOfFermentingBarrel
-FillFermentingBarrel
+CPD_WorkGiver_TakeAlcoholOutOfAlcoholBarrel$FromCompatibleMod$KeepInOriginalJob
+CPD_WorkGiver_FillAlcoholBarrel$FromCompatibleMod$KeepInOriginalJob
 $Sowing
 Sow
 $Harvesting
@@ -67,22 +68,24 @@ DoBillsCremate
 $Feeding
 FeedPrisoner
 
-// Mod settings configuration
-~ModSettings`Default.Type=CheckBox`Default.Boolean=true
-$
-Enable All Work Types`Type=Button`OperationImmediate=SetBooleanSettings(ModSettings.WorkTypeDefs,true)
-Disable All Work Types`Type=Button`OperationImmediate=SetBooleanSettings(ModSettings.WorkTypeDefs,false)
+
+\ Mod settings configuration
+~ModSettings
+Type=ModSetting
+ModSetting`DisplayName=<Name`Description=Enable/Disable the <DisplayName work type`SettingType=Bool`DefaultValue=true`OperationsSettingsChanged=
+
 $WorkTypeDefs
-Nursing`OperationSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN
-Feeding`OperationSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(Groups.WorkGiverDefs.Feeding,this.Value)
-Refueling`OperationSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN
-TrapRearming`DisplayName=Trap Rearming`OperationSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN
-Brewing`OperationSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(Groups.WorkGiverDefs.Brewing,this.Value)
-Maintenance`OperationSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(Groups.WorkGiverDefs.Maintenance,this.Value)
-Demolition`OperationSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(Groups.WorkGiverDefs.Demolition,this.Value)
-Harvesting`OperationSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(Groups.WorkGiverDefs.Harvesting,this.Value)
-Sowing`OperationSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(Groups.WorkGiverDefs.Sowing,this.Value)
-Loading`OperationSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(Groups.WorkGiverDefs.Loading,this.Value)
-Mortician`OperationSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(Groups.WorkGiverDefs.Mortician,this.Value)
+Nursing`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN
+Feeding`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(WorkGiverDefs.Feeding,!^Value)
+Refueling`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN
+TrapRearming`Base=ModSetting`DisplayName=Trap Rearming`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN
+Brewing`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(WorkGiverDefs.Brewing,!^Value)
+Maintenance`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(WorkGiverDefs.Maintenance,!^Value)
+Demolition`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(WorkGiverDefs.Demolition,!^Value)
+Harvesting`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(WorkGiverDefs.Harvesting,!^Value),SetWorkTypeEnabledByConditional(WorkTypeDefs.Growing,!WorkTypeDefs.Harvesting|!WorkTypeDefs.Sowing)
+Sowing`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(WorkGiverDefs.Sowing,!^Value),SetWorkTypeEnabledByConditional(WorkTypeDefs.Growing,!WorkTypeDefs.Harvesting|!WorkTypeDefs.Sowing)
+Loading`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(WorkGiverDefs.Loading,!^Value)
+Mortician`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(WorkGiverDefs.Mortician,!^Value)
+
 $
-Haulers Haul To Blueprints`OperationSettingsChanged=SetWorkGiverEnabled(HaulDeliverResourcesToBlueprints,this.Value)
+Haulers Haul To Blueprints`Base=ModSetting`Description=If pawns with hauling enabled are allowed to haul resurces to construction blueprints.`OperationsSettingsChanged=SetWorkGiverEnabled(HaulDeliverResourcesToBlueprints,^Value),SetWorkGiverEnabled(WorkGiverDefs.HaulDeliverResourcesToFrames,^Value)
