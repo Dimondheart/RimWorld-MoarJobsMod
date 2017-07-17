@@ -149,7 +149,6 @@
 				<value>
 					<workType>Sowing</workType>
 				</value>
-				<success>Always</success>
 			</li>
 		</operations>
 	</Operation>
@@ -178,7 +177,36 @@
 						</requiredCapacities>
 					</WorkGiverDef>
 				</value>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+				<xpath>*/WorkGiverDef[defName = "GetHoney"]/workType</xpath>
 				<success>Always</success>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/WorkGiverDef[defName = "GetHoney"]/workType</xpath>
+				<value>
+					<workType>Harvesting</workType>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationTest">
+				<xpath>*/WorkGiverDef[defName = "HarvestYieldingPlants"]/workType</xpath>
+				<success>Always</success>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>*/WorkGiverDef[defName = "HarvestYieldingPlants"]/workType</xpath>
+				<value>
+					<workType>Harvesting</workType>
+				</value>
 			</li>
 		</operations>
 	</Operation>
