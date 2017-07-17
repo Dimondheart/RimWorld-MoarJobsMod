@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <WorkGivers>
-
 	<WorkGiverDef>
 		<defName>MaintainRefuel</defName>
 		<label>refuel fuelable buildings</label>
@@ -184,4 +183,29 @@
 		</requiredCapacities>
 	</WorkGiverDef>
 
+	<WorkGiverDef>
+		<defName>BrewerTakeBeerOutOfFermentingBarrel</defName>
+		<label>take beer out of fermenting barrels</label>
+		<giverClass>WorkGiver_TakeBeerOutOfFermentingBarrel</giverClass>
+		<workType>Brewing</workType>
+		<verb>take beer</verb>
+		<gerund>taking beer from</gerund>
+		<priorityInType>20</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>BrewerFillFermentingBarrel</defName>
+		<label>fill fermenting barrels</label>
+		<giverClass>WorkGiver_FillFermentingBarrel</giverClass>
+		<workType>Brewing</workType>
+		<verb>fill</verb>
+		<gerund>filling</gerund>
+		<priorityInType>19</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
 </WorkGivers>
