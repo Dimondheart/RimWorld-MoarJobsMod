@@ -15,8 +15,6 @@ namespace MoarJobs
 		 * SettingsChanged() is called on this class.
 		 */
 		public static string[] allWorkTypesByPriority { get; private set; }
-		/** Def names of the work types created by this mod. */
-		public static string[] moarJobsWorkTypeDefNames { get; private set; }
 		/** The first 'normal' job is the index in workTypeDefNames of the first job that
 		 * is not a hidden job used for internal purposes.
 		 */
@@ -28,29 +26,12 @@ namespace MoarJobs
 		public static void Initialize(SetupData setupData, HugsLib.Utils.ModLogger logger)
 		{
 			WorkTypeUtils.logger = logger;
-			// TODO set this properly
-			moarJobsWorkTypeDefNames = new string[]
-			{
-				"Nursing",
-				"Feeding",
-				"Refueling",
-				"TrapRearming",
-				"Brewing",
-				"Maintenance",
-				"Demolition",
-				"Harvesting",
-				"Sowing",
-				"Loading",
-				"Mortician",
-				"HiddenJob"
-			};
 			UpdateWorkTypeArrays();
 		}
 
 		public static void Refresh()
 		{
 			UpdateWorkTypeArrays();
-			UpdateEnabledStates();
 		}
 
 		public static int GetIndexInWorkPawnTable(string workTypeDefName)
@@ -100,7 +81,7 @@ namespace MoarJobs
 			}
 			if (allWorkTypesByPriority != null && allWorkTypeDefs.Count != allWorkTypesByPriority.Length)
 			{
-				logger.Error("Number of job definitions changed");
+				logger.Warning("Number of job definitions changed");
 				return;
 			}
 			allWorkTypeDefs.Sort((WorkTypeDef a, WorkTypeDef b) =>
@@ -123,14 +104,6 @@ namespace MoarJobs
 				{
 					allWorkTypeStates[i] = new WorkTypeState(allWorkTypeDefs[i]);
 				}
-			}
-		}
-
-		private static void UpdateEnabledStates()
-		{
-			for (int i = 0; i < allWorkTypesByPriority.Length; i++)
-			{
-				SetWorkTypeEnabled(allWorkTypesByPriority[i], allWorkTypeStates[i].Visible);
 			}
 		}
 

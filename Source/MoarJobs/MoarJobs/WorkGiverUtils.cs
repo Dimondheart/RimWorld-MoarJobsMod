@@ -15,7 +15,6 @@ namespace MoarJobs
 
 		public static void Initialize(SetupData setupData, HugsLib.Utils.ModLogger logger)
 		{
-			// TODO
 			WorkGiverUtils.setupData = setupData;
 			WorkGiverUtils.logger = logger;
 			allWorkGiverStates = new Dictionary<string, WorkGiverState>(DefDatabase<WorkGiverDef>.AllDefsListForReading.Count);

@@ -5,10 +5,12 @@ namespace MoarJobs
 {
 	public class SetupData
 	{
+		public readonly HugsLib.Utils.ModLogger logger;
 		public List<Group> groups = new List<Group>(10);
 
-		public SetupData()
+		public SetupData(HugsLib.Utils.ModLogger logger)
 		{
+			this.logger = logger;
 		}
 
 		public IList<GroupEntry> GetEntries(string fullGroupName)
@@ -52,6 +54,22 @@ namespace MoarJobs
 			{
 				group.AddEntry(entry);
 			}
+		}
+
+		public GroupEntry FindEntry(string entryName, string searchInGroup)
+		{
+			Group group = FindGroup(searchInGroup);
+			if (group != null)
+			{
+				foreach (GroupEntry entry in group.Entries)
+				{
+					if (entry.name == entryName)
+					{
+						return entry;
+					}
+				}
+			}
+			return null;
 		}
 	}
 }

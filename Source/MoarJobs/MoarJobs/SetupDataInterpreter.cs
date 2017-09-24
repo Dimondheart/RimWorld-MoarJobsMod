@@ -8,7 +8,7 @@ namespace MoarJobs
 	{
 		public static SetupData Interpret(string fullFilePath, HugsLib.Utils.ModLogger logger)
 		{
-			SetupData setupData = new SetupData();
+			SetupData setupData = new SetupData(logger);
 			string[] blocks = File.ReadAllText(fullFilePath).Replace(Environment.NewLine, "\n").Split('~');
 			List<Macro> macros = new List<Macro>(5);
 			// Add special macros
@@ -18,7 +18,7 @@ namespace MoarJobs
 			// Ignore the first block (header)
 			for (int blockIndex = 1; blockIndex < blocks.Length; blockIndex++)
 			{
-				string[] lines = PreprocessBlock(blocks[blockIndex], macros);
+				string[] lines = PreprocessBlock(blocks[blockIndex], ref macros);
 				// If this block is a comment type section
 				if (lines == null)
 				{

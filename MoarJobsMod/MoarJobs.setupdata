@@ -9,12 +9,12 @@ Editing this file could cause the mod to not work properly. Edit at your own ris
 Type=FunctionDeclaration
 
 $WorkTypeUtils
-SetWorkTypeEnabled`type=String`enabled=Bool
-SetWorkTypeEnabledByConditional`defName=String`condition=Conditional
+SetWorkTypeEnabled`type=String`enabled=Boolean
+SetWorkTypeEnabledByConditional`defName=String`condition=MoarJobs.Conditional
 
 $WorkGiverUtils
-SetWorkGiverEnabled`giver=String`enabled=Bool
-SetWorkGiversEnabled`group=Group`enabled=Bool
+SetWorkGiverEnabled`giver=String`enabled=Boolean
+SetWorkGiversEnabled`group=Group`enabled=Boolean
 
 
 \ Work types added by this mod
@@ -72,20 +72,20 @@ FeedPrisoner
 \ Mod settings configuration
 ~ModSettings
 Type=ModSetting
-ModSetting`DisplayName=<Name`Description=Enable/Disable the <DisplayName work type`SettingType=Bool`DefaultValue=true`OperationsSettingsChanged=
+ModSetting`DisplayName=<Name`Description=Enable/Disable the <DisplayName work type`SettingType=Boolean`DefaultValue=true`OperationsSettingsChanged=
 
 $WorkTypeDefs
 Nursing`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN
-Feeding`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(WorkGiverDefs.Feeding,!^Value)
+Feeding`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN;SetWorkGiversEnabled(WorkGiverDefs.Feeding,!^Value)
 Refueling`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN
 TrapRearming`Base=ModSetting`DisplayName=Trap Rearming`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN
-Brewing`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(WorkGiverDefs.Brewing,!^Value)
-Maintenance`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(WorkGiverDefs.Maintenance,!^Value)
-Demolition`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(WorkGiverDefs.Demolition,!^Value)
-Harvesting`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(WorkGiverDefs.Harvesting,!^Value),SetWorkTypeEnabledByConditional(WorkTypeDefs.Growing,!WorkTypeDefs.Harvesting|!WorkTypeDefs.Sowing)
-Sowing`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(WorkGiverDefs.Sowing,!^Value),SetWorkTypeEnabledByConditional(WorkTypeDefs.Growing,!WorkTypeDefs.Harvesting|!WorkTypeDefs.Sowing)
-Loading`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(WorkGiverDefs.Loading,!^Value)
-Mortician`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN,SetWorkGiversEnabled(WorkGiverDefs.Mortician,!^Value)
+Brewing`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN;SetWorkGiversEnabled(WorkGiverDefs.Brewing,!^Value)
+Maintenance`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN;SetWorkGiversEnabled(WorkGiverDefs.Maintenance,!^Value)
+Demolition`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN;SetWorkGiversEnabled(WorkGiverDefs.Demolition,!^Value)
+Harvesting`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN;SetWorkGiversEnabled(WorkGiverDefs.Harvesting,!^Value);SetWorkTypeEnabledByConditional(WorkTypeDefs.Growing,!WorkTypeDefs.Harvesting|!WorkTypeDefs.Sowing)
+Sowing`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN;SetWorkGiversEnabled(WorkGiverDefs.Sowing,!^Value);SetWorkTypeEnabledByConditional(WorkTypeDefs.Growing,!WorkTypeDefs.Harvesting|!WorkTypeDefs.Sowing)
+Loading`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN;SetWorkGiversEnabled(WorkGiverDefs.Loading,!^Value)
+Mortician`Base=ModSetting`OperationsSettingsChanged=DEFAULT_OSC_SETTING_BOOLEAN;SetWorkGiversEnabled(WorkGiverDefs.Mortician,!^Value)
 
 $
-Haulers Haul To Blueprints`Base=ModSetting`Description=If pawns with hauling enabled are allowed to haul resurces to construction blueprints.`OperationsSettingsChanged=SetWorkGiverEnabled(HaulDeliverResourcesToBlueprints,^Value),SetWorkGiverEnabled(WorkGiverDefs.HaulDeliverResourcesToFrames,^Value)
+Haulers Haul To Blueprints`Base=ModSetting`Description=If pawns with hauling enabled are allowed to haul resurces to construction blueprints.`OperationsSettingsChanged=SetWorkGiverEnabled(HaulDeliverResourcesToBlueprints,^Value);SetWorkGiverEnabled(WorkGiverDefs.HaulDeliverResourcesToFrames,^Value)
