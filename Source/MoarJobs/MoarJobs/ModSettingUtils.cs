@@ -6,7 +6,7 @@ using HugsLib;
 using HugsLib.Settings;
 using System.Reflection;
 
-namespace MoarJobs
+namespace TechnoWolf.MoarJobs
 {
 	public static class ModSettingUtils
 	{

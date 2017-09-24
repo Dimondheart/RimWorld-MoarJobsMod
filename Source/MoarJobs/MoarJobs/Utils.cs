@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MoarJobs
+namespace TechnoWolf.MoarJobs
 {
 	public static class Utils
 	{

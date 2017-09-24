@@ -5,7 +5,7 @@ using RimWorld;
 using HugsLib;
 using HugsLib.Settings;
 
-namespace MoarJobs
+namespace TechnoWolf.MoarJobs
 {
 	public static class WorkGiverUtils
 	{
