@@ -23,7 +23,7 @@ namespace MoarJobs
 		private static WorkTypeState[] allWorkTypeStates;
 		private static HugsLib.Utils.ModLogger logger;
 
-		public static void Initialize(SetupData setupData, HugsLib.Utils.ModLogger logger)
+		public static void Initialize(HugsLib.Utils.ModLogger logger)
 		{
 			WorkTypeUtils.logger = logger;
 			UpdateWorkTypeArrays();
@@ -47,19 +47,6 @@ namespace MoarJobs
 			}
 			// We add some because the first few columns are not work priority
 			return index + firstWorkPriorityColumn;
-		}
-
-		public static void DoFunctionCall(GroupEntry_FunctionCall call, Dictionary<string, string> values)
-		{
-			switch (call.name)
-			{
-				case "SetWorkTypeEnabled":
-					SetWorkTypeEnabled(values["type"], bool.Parse(values["enabled"]));
-					break;
-				default:
-					logger.Error("Invalid function call group entry on WorkTypeUtils:" + call.name);
-					break;
-			}
 		}
 
 		public static void SetWorkTypeEnabled(string defName, bool value)

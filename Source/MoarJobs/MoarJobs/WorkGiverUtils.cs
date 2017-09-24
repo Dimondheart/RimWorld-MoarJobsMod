@@ -10,12 +10,10 @@ namespace MoarJobs
 	public static class WorkGiverUtils
 	{
 		private static Dictionary<string, WorkGiverState> allWorkGiverStates;
-		private static SetupData setupData;
 		private static HugsLib.Utils.ModLogger logger;
 
-		public static void Initialize(SetupData setupData, HugsLib.Utils.ModLogger logger)
+		public static void Initialize(HugsLib.Utils.ModLogger logger)
 		{
-			WorkGiverUtils.setupData = setupData;
 			WorkGiverUtils.logger = logger;
 			allWorkGiverStates = new Dictionary<string, WorkGiverState>(DefDatabase<WorkGiverDef>.AllDefsListForReading.Count);
 			foreach (WorkGiverDef def in DefDatabase<WorkGiverDef>.AllDefs)
@@ -24,23 +22,7 @@ namespace MoarJobs
 			}
 		}
 
-		public static void DoFunctionCall(GroupEntry_FunctionCall call, Dictionary<string, string> values)
-		{
-			switch (call.name)
-			{
-				case "SetWorkGiverEnabled":
-					SetWorkGiverEnabled(values["giver"], bool.Parse(values["enabled"]));
-					break;
-				case "SetWorkGiversEnabled":
-					SetWorkGiversEnabled(setupData.FindGroup(values["group"]), bool.Parse(values["enabled"]));
-					break;
-				default:
-					logger.Error("Invalid function call group entry on WorkGiverUtils:" + call.name);
-					break;
-			}
-		}
-
-		public static void SetWorkGiverEnabled(String defName, bool value)
+		public static void SetWorkGiverEnabled(bool value, String defName)
 		{
 			if (Find.World != null && Find.WorldPawns != null)
 			{
@@ -48,11 +30,11 @@ namespace MoarJobs
 			}
 		}
 
-		public static void SetWorkGiversEnabled(Group group, bool value)
+		public static void SetWorkGiversEnabled(bool value, params string[] defNames)
 		{
-			foreach (GroupEntry entry in group.Entries)
+			foreach (string defName in defNames)
 			{
-				SetWorkGiverEnabled(entry.name, value);
+				SetWorkGiverEnabled(value, defName);
 			}
 		}
 

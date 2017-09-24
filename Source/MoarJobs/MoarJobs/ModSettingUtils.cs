@@ -11,75 +11,202 @@ namespace MoarJobs
 	public static class ModSettingUtils
 	{
 		private static HugsLib.Utils.ModLogger logger;
-		private static SetupData setupData;
-		private static Dictionary<string, SettingHandle> modSettingHandles;
-		private static Dictionary<string, List<GroupEntry_FunctionCall>> operationsSettingsChanged;
+		private static Dictionary<string, ModSetting> modSettings;
 
-		public static void Initialize(SetupData setupData, HugsLib.Utils.ModLogger logger, ModSettingsPack settings)
+		public static void Initialize(HugsLib.Utils.ModLogger logger, ModSettingsPack settings)
 		{
 			ModSettingUtils.logger = logger;
-			ModSettingUtils.setupData = setupData;
-			modSettingHandles = new Dictionary<string, SettingHandle>(setupData.GetEntries("ModSettings").Count);
-			operationsSettingsChanged = new Dictionary<string, List<GroupEntry_FunctionCall>>(setupData.GetEntries("ModSettings").Count);
-			foreach(GroupEntry_ModSetting modSetting in setupData.GetEntries("ModSettings"))
+			List<ModSetting> ms = new List<ModSetting>();
+			ms.Add(
+				new WorkTypeEnabledSetting(
+					"Nursing",
+					"Nurse Job",
+					"Assists doctors by taking care of basic tasks",
+					true,
+					settings
+					)
+				);
+			ms.Add(
+				new WorkTypeEnabledSetting(
+					"Feeding",
+					"Feed Job",
+					"Feeds prisoners and patients to allow wardens to focus on socializing",
+					true,
+					settings
+					)
+				);
+			ms.Add(
+				new WorkTypeEnabledSetting(
+					"Refueling",
+					"Refuel Job",
+					"Adds fuel to generators, torches, etc.",
+					true,
+					settings
+					)
+				);
+			ms.Add(
+				new WorkTypeEnabledSetting(
+					"TrapRearming",
+					"Trap Rearm Job",
+					"Rearms traps",
+					true,
+					settings
+					)
+				);
+			ms.Add(
+				new WorkTypeEnabledSetting(
+					"Brewing",
+					"Brew Job",
+					"Brew beverages",
+					true,
+					settings
+					)
+				);
+			ms.Add(
+				new WorkTypeEnabledSetting(
+					"Maintenance",
+					"Maintenance Job",
+					"Refuel, rearm, repair, build/destroy roofs, and other maintenance tasks",
+					true,
+					settings
+					)
+				);
+			ms.Add(
+				new WorkTypeEnabledSetting(
+					"Demolition",
+					"Demolition Job",
+					"Demolish structures, uninstall furniture, smooth/remove flooring, etc.",
+					true,
+					settings
+					)
+				);
+			ms.Add(
+				new WorkTypeEnabledSetting(
+					"Harvesting",
+					"Harvest Job",
+					"Harvest crops",
+					true,
+					settings
+					)
+				);
+			ms.Add(
+				new WorkTypeEnabledSetting(
+					"Sowing",
+					"Sow Job",
+					"Plant crops",
+					true,
+					settings
+					)
+				);
+			ms.Add(
+				new WorkTypeEnabledSetting(
+					"Loading",
+					"Load Job",
+					"Load/Unload caravans, transporters and other carriers",
+					true,
+					settings
+					)
+				);
+			ms.Add(
+				new WorkTypeEnabledSetting(
+					"Mortician",
+					"Mortician Job",
+					"Bury bodies and carry out cremation tasks",
+					true,
+					settings
+					)
+				);
+			ms.Add(
+				new WorkGiverEnabledSetting(
+					"HaulerHaulToBlueprint",
+					"Haulers Can Haul to Blueprints",
+					"Allow haulers to haul to construction blueprints",
+					true,
+					settings
+					)
+				);
+			modSettings = new Dictionary<string, ModSetting>(ms.Count);
+			foreach (ModSetting s in ms)
 			{
-				if (modSetting.SettingType == typeof(bool))
-				{
-					modSettingHandles[modSetting.name] = settings.GetHandle<bool>(
-					modSetting.name,
-					modSetting.DisplayName,
-					modSetting.Description,
-					bool.Parse(modSetting.DefaultValue)
-					);
-				}
-				else if (modSetting.SettingType == typeof(string))
-				{
-					modSettingHandles[modSetting.name] = settings.GetHandle<string>(
-					modSetting.name,
-					modSetting.DisplayName,
-					modSetting.Description,
-					modSetting.DefaultValue
-					);
-				}
-				else
-				{
-					logger.Warning("Setting type not allowed:" + modSetting.SettingType.ToString());
-				}
-				operationsSettingsChanged[modSetting.name] = modSetting.operationsSettingsChanged;
+				modSettings[s.codeName] = s;
 			}
 		}
 
 		public static void SettingsChanged()
 		{
-			foreach (GroupEntry_ModSetting setting in setupData.GetEntries("ModSettings"))
+		}
+
+		private abstract class ModSetting
+		{
+			public readonly string codeName;
+			public readonly string displayName;
+			public readonly string description;
+			public bool enabled;
+
+			public bool Visible
 			{
-				foreach (GroupEntry_FunctionCall call in setting.operationsSettingsChanged)
+				get
 				{
-					Dictionary<string, string> passValues = new Dictionary<string, string>(call.parameters.Count);
-					// Set values to pass
-					foreach (System.Collections.Generic.KeyValuePair<string, string> pair in call.parameters)
-					{
-						string parameter = pair.Value;
-						// Perform reference substitutions
-						if (parameter.Contains("^"))
-						{
-							if (parameter.Contains("!^Value"))
-							{
-								parameter = parameter.Replace("!^Value", (!((SettingHandle<bool>)modSettingHandles[setting.name]).Value).ToString());
-							}
-							if (parameter.Contains("^Value"))
-							{
-								parameter = parameter.Replace("^Value", ((SettingHandle<bool>)modSettingHandles[setting.name]).Value.ToString());
-							}
-							if (parameter.Contains("^"))
-							{
-								logger.Warning("Possible unprocessed reference(s) in parameter:" + parameter);
-							}
-						}
-						passValues[pair.Key] = parameter;
-					}
-					call.functionDeclaration.functionCallHandler(call, passValues);
+					return enabled;
 				}
+			}
+
+			public ModSetting(string codeName, string displayName, string description)
+			{
+				this.codeName = codeName;
+				this.displayName = displayName;
+				this.description = description;
+			}
+		}
+
+		private abstract class ModSetting<T> : ModSetting
+		{
+			public readonly T defaultValue;
+			public readonly SettingHandle<T> settingHandle;
+
+			public ModSetting(string codeName, string displayName, string description, T defaultValue, ModSettingsPack settingsPack)
+				: base(codeName, displayName, description)
+			{
+				this.defaultValue = defaultValue;
+				settingHandle = settingsPack.GetHandle<T>(
+					codeName,
+					displayName,
+					description,
+					defaultValue
+					);
+				settingHandle.OnValueChanged = ValueChanged;
+				settingHandle.VisibilityPredicate = IsVisible;
+			}
+
+			protected abstract void ValueChanged(T newValue);
+
+			private bool IsVisible()
+			{
+				return Visible;
+			}
+		}
+
+		private class WorkTypeEnabledSetting : ModSetting<bool>
+		{
+			public WorkTypeEnabledSetting(string codeName, string displayName, string description, bool defaultValue, ModSettingsPack settingsPack)
+				: base(codeName, displayName, description, defaultValue, settingsPack)
+			{
+			}
+
+			protected override void ValueChanged(bool newValue)
+			{
+			}
+		}
+
+		private class WorkGiverEnabledSetting : ModSetting<bool>
+		{
+			public WorkGiverEnabledSetting(string codeName, string displayName, string description, bool defaultValue, ModSettingsPack settingsPack)
+				: base(codeName, displayName, description, defaultValue, settingsPack)
+			{
+			}
+
+			protected override void ValueChanged(bool newValue)
+			{
 			}
 		}
 	}

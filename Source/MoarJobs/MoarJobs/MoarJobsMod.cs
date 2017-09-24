@@ -31,7 +31,7 @@ namespace MoarJobs
 		{
 			get
 			{
-				return "A17MoarJobs";
+				return "A17MoarJobs_1";
 			}
 		}
 
@@ -41,10 +41,9 @@ namespace MoarJobs
 			{
 				return;
 			}
-			SetupData setupData = SetupDataInterpreter.Interpret(RootDir + @"\" + modSetupDataFileName, Logger);
-			WorkTypeUtils.Initialize(setupData, Logger);
-			WorkGiverUtils.Initialize(setupData, Logger);
-			ModSettingUtils.Initialize(setupData, Logger, Settings);
+			WorkTypeUtils.Initialize(Logger);
+			WorkGiverUtils.Initialize(Logger);
+			ModSettingUtils.Initialize(Logger, Settings);
 		}
 
 		public override void SettingsChanged()
